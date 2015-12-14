@@ -1,0 +1,60 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cstdio>
+using namespace std ;
+
+int main ()
+{
+        int testcase ,query ;
+        vector <int> myvector ,myquery ;
+        vector<int>::iterator it,it1 ,it2 ;
+        while (cin >> testcase && testcase!= 0)
+        {
+                int number ;
+                for (int i = 0; i < testcase ; i += 1)
+                {
+                        cin >> number ;
+                        myvector.push_back (number) ;
+                }
+                cin >> query ;
+                for (int i = 0; i < query; i += 1)
+                {
+                        cin >> number ;
+                        myquery.push_back (number) ;
+                }
+                 
+                for (it1= myquery.begin() ;it1!= myquery.end () ;it1++)
+                {
+                        int sum ,sum1 ;
+                        for (it = myvector.begin() ;it != myvector.end ()-1; it++)
+                        {
+                                for(it2 = it +1 ; it2 != myvector.end() ;it2++)
+                                {
+                                        if (it == myvector.begin() && it2 == it+1) 
+                                        {
+                                        sum = (*it + *it2 ) ;
+                                        cout << "for it == myvector.begin() && it2 == it+1" << sum << endl; 
+                                       
+                                        }
+                                        else 
+                                        {
+                                        sum1 = (*it+*it2) ;
+                                        cout  << *it1 << ' ' << *it << ' ' << *it2 << ' ' << sum1 << endl ;
+                                        cout << "for the last case :" << sum << ' ' <<abs(*it1 - sum1 )
+//<< endl ;
+                                        if( abs(*it1 - sum1 ) < sum )
+                                        {
+                                                sum = sum1  ;
+                                        }
+                                        } 
+                                }     
+                        }
+                        cout << sum << endl ; 
+                 }       
+                 
+                 myvector.erase (myvector.begin() ,myvector.end()) ;
+                 myquery.erase (myquery.begin() ,myquery.end()) ;
+         }
+         return 0 ; 
+         }
