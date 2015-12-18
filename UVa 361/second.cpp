@@ -1,5 +1,5 @@
 //money,fear,hunger
-
+// accepted
 #include <bits/stdc++.h>
 
 using namespace std;
